@@ -12,8 +12,9 @@ public class Client {
 	private String lastName;
 	private String phone;
 	private String direction;
+	
+	//Constructor method
 	public Client(String docType, String id, String name, String lastName, String phone, String direction) {
-		super();
 		this.docType = docType;
 		this.id = id;
 		this.name = name;
@@ -21,6 +22,8 @@ public class Client {
 		this.phone = phone;
 		this.direction = direction;
 	}
+	
+	//getters and setters for Client's attributes
 	public String getDocType() {
 		return docType;
 	}
