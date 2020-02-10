@@ -13,6 +13,9 @@ public class Client {
 	private String phone;
 	private String direction;
 	
+	
+	private Turn turn;
+	
 	//Constructor method
 	public Client(String docType, String id, String name, String lastName, String phone, String direction) {
 		this.docType = docType;
@@ -59,5 +62,13 @@ public class Client {
 	}
 	public void setDirection(String direction) {
 		this.direction = direction;
+	}
+	
+	public Turn getTurn() {
+		return turn;
+	}
+
+	public void setTurn(Turn turn) {
+		this.turn = turn;
 	}
 }
