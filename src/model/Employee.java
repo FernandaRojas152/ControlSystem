@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Employee {
 	//Attributes
 	private ArrayList<Client> clients;
+	private Turn last;
 	
 	//Methods
 	
@@ -32,13 +33,33 @@ public class Employee {
 	}
 	
 	public ArrayList<Client> addClient(String id, String docType, String name, String lastName){
+		
 		return clients;
 	}
 	
-	public void advanceTurn() {
-		
+	public Turn advanceTurn() {
+		if(last== null) {
+			last= new Turn();
+		} else {
+			char c= last.getLetter().charAt(0);
+			char b= last.getLetter().charAt(1);
+			char a= last.getLetter().charAt(2);
+			if(a!= '9') {
+				a++;
+			}else {
+				a='0';
+				if(b<57) {
+					b++;
+				} else {
+					b=48;
+					c++;
+				}
+			}
+			String turnf = c+""+b+""+a;
+			last.setLetter(turnf);
+		}
+		return last;
 	}
-	
 	
 	
 	
