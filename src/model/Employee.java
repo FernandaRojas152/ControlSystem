@@ -33,7 +33,9 @@ public class Employee {
 	}
 
 	public ArrayList<Client> addClient(String id, String docType, String name, String lastName) {
-	
+		if() {
+			
+		}
 
 		return clients;
 	}
