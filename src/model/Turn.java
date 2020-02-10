@@ -11,8 +11,8 @@ public class Turn {
 	private boolean status;
 	private Turn last;
 	
-	public Turn() {
-		letter="";
+	public Turn(String letter) {
+		this.letter= letter;
 		status= false;
 		last= null;
 	}
@@ -37,5 +37,13 @@ public class Turn {
 	public void setLast(Turn last) {
 		this.last = last;
 	}
+
+	@Override
+	public String toString() {
+	
+		return letter;
+	}
+	
+	
 
 }

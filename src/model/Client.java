@@ -17,13 +17,20 @@ public class Client {
 	private Turn turn;
 	
 	//Constructor method
+	public Client(String docType, String id, String name, String lastName) {
+		this.docType = docType;
+		this.id = id;
+		this.name = name;
+		this.lastName = lastName;
+	}
+	
 	public Client(String docType, String id, String name, String lastName, String phone, String direction) {
 		this.docType = docType;
 		this.id = id;
 		this.name = name;
 		this.lastName = lastName;
-		this.phone = phone;
-		this.direction = direction;
+		this.phone= phone;
+		this.direction= direction;
 	}
 	
 	//getters and setters for Client's attributes
