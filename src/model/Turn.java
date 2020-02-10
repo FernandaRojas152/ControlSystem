@@ -6,17 +6,20 @@ package model;
  * Class Turn
  */
 public class Turn {
-	
+	//Attributes
 	private String letter;
 	private boolean status;
 	private Turn last;
 	
+	//Methods
+	//Constructor's method
 	public Turn(String letter) {
 		this.letter= letter;
 		status= false;
 		last= null;
 	}
 	
+	//getters and setters
 	public String getLetter() {
 		return letter;
 	}
@@ -38,12 +41,10 @@ public class Turn {
 		this.last = last;
 	}
 
+	//
 	@Override
 	public String toString() {
 	
 		return letter;
 	}
-	
-	
-
 }

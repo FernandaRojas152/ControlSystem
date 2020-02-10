@@ -33,7 +33,12 @@ public class Employee {
 	}
 
 	public ArrayList<Client> addClient(String id, String docType, String name, String lastName) {
-		if() {
+		if(id== null && docType== null && name== null && lastName== null) {
+			try {
+				
+			}catch(Exception e){
+				
+			}
 			
 		}
 
