@@ -3,7 +3,7 @@ package customExceptions;
 /**
  * @version Feb 11th 2020
  * @author Fernanda
- *
+ * Class ExceptionRequiredFields
  */
 public class ExceptionRequiredFields extends Exception{
 	/**
