@@ -35,9 +35,19 @@ public class Employee {
 	 * @param id
 	 * @return
 	 */
-	public ArrayList<Client> searchClient(String id) {
+	public Client searchClient(String id) throws NullPointerException{
+		boolean find= false;
+		Client client= null;
 		
-		return clients;
+			for(int i=0; i<clients.size() && !find; i++) {
+				if(clients.get(i).getId().equals(id)) {
+					client= clients.get(i);
+					find=true;
+				}else {
+					//throw new NullPointerException
+				}
+			}
+		return client;
 	}
 
 	public ArrayList<Client> addClient(String id, String docType, String name, String lastName) throws ExceptionRequiredFields{
