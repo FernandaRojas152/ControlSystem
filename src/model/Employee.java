@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import customExceptions.*;
 
 /**
  * @version Feb 2th 2020
@@ -28,21 +29,24 @@ public class Employee {
 	public void setClients(ArrayList<Client> clients) {
 		this.clients = clients;
 	}
-
+	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public ArrayList<Client> searchClient(String id) {
+		
 		return clients;
 	}
 
-	public ArrayList<Client> addClient(String id, String docType, String name, String lastName) {
-		if(id== null && docType== null && name== null && lastName== null) {
-			try {
-				
-			}catch(Exception e){
-				
-			}
-			
-		}
-
+	public ArrayList<Client> addClient(String id, String docType, String name, String lastName) throws ExceptionRequiredFields{
+		clients.add(new Client(id, docType, name, lastName));
+		return clients;
+	}
+	
+	public ArrayList<Client> addClient(String id, String docType, String name, String lastName, String phone, String direction) throws ExceptionRequiredFields{
+		clients.add(new Client(id, docType, name, lastName, phone, direction));
 		return clients;
 	}
 
