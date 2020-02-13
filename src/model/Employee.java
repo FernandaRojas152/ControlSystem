@@ -49,9 +49,11 @@ public class Employee {
 	}
 
 	/**
-	 * 
-	 * @param id
-	 * @return
+	 * This method will search a client by his id, and show it on screen.
+	 * <b> pre: </b> id!= null <br>
+	 * <b> post: shows the specific client with his id.
+	 * @param id -client's document number.
+	 * @return client -an specific client that has been saved in a new object.
 	 */
 	public Client searchClient(String id) throws NullPointerException{
 		boolean find= false;
@@ -67,13 +69,15 @@ public class Employee {
 		}
 		return client;
 	}
+	
 	/**
-	 * 
-	 * @param id
-	 * @param docType
-	 * @param name
-	 * @param lastName
-	 * @return
+	 * <b> post: it's added a new client on the arrayList in a
+	 * specific position.
+	 * @param id -client's document number.
+	 * @param docType -client's document type
+	 * @param name -client's name
+	 * @param lastName -client's last name.
+	 * @return clients -an arrayList of clients.
 	 * @throws ExceptionRequiredFields
 	 */
 	public ArrayList<Client> addClient(String id, String docType, String name, String lastName) throws ExceptionRequiredFields{
