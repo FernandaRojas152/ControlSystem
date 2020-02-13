@@ -105,7 +105,6 @@ public class Employee {
 	 * @return clients -an added new client to the arrayList.
 	 */
 	public ArrayList<Client> addClient( String docType, String id, String name, String lastName, String phone, String direction) throws ExceptionRequiredFields{
-		
 				clients.add(new Client(id, docType, name, lastName, phone, direction));
 		return clients;
 	}
@@ -145,6 +144,11 @@ public class Employee {
 		return last;
 	}
 	
+	/**
+	 * This method will tell if a client was actually attended or not.
+	 * The client can lose a turn if he's not there at the moment of the call.
+	 * @return attended
+	 */
 	public boolean wasAttended() {
 		if (last.isStatus()== true) {
 			attended= true;
