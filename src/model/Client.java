@@ -6,6 +6,7 @@ package model;
  * Class Client
  */
 public class Client {
+	//Atributes
 	private String docType;
 	private String id;
 	private String name;
@@ -13,10 +14,19 @@ public class Client {
 	private String phone;
 	private String direction;
 	
-	
+	/**
+	 * Association with class Turn so each client has a turn.
+	 */
 	private Turn turn;
 	
-	//Constructor method
+	//Methods
+	/**
+	 * Constructor's method of class Client
+	 * @param docType
+	 * @param id
+	 * @param name
+	 * @param lastName
+	 */
 	public Client(String docType, String id, String name, String lastName) {
 		this.docType = docType;
 		this.id = id;
@@ -24,6 +34,15 @@ public class Client {
 		this.lastName = lastName;
 	}
 	
+	/**
+	 * Overloading constructor Client
+	 * @param docType
+	 * @param id
+	 * @param name
+	 * @param lastName
+	 * @param phone
+	 * @param direction
+	 */
 	public Client(String docType, String id, String name, String lastName, String phone, String direction) {
 		this.docType = docType;
 		this.id = id;
