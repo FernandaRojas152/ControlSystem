@@ -22,8 +22,8 @@ public class Client {
 	//Methods
 	/**
 	 * Constructor's method of class Client
-	 * @param docType
-	 * @param id
+	 * @param docType -
+	 * @param id -
 	 * @param name
 	 * @param lastName
 	 */
@@ -36,12 +36,12 @@ public class Client {
 	
 	/**
 	 * Overloading constructor Client
-	 * @param docType
-	 * @param id
-	 * @param name
-	 * @param lastName
-	 * @param phone
-	 * @param direction
+	 * @param docType -client's document type.
+	 * @param id -client's document number.
+	 * @param name -client's document name.
+	 * @param lastName -client's document lastName.
+	 * @param phone -client's document phone.
+	 * @param direction -client's document direction.
 	 */
 	public Client(String docType, String id, String name, String lastName, String phone, String direction) {
 		this.docType = docType;

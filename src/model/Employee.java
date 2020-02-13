@@ -74,20 +74,19 @@ public class Employee {
 	 *This method will add a new Client, but only with 4 params that are required 
 	 * <b> post: it's added a new client on the arrayList in a
 	 * specific position.
-	 * @param id -client's document number.
 	 * @param docType -client's document type
+	 * @param id -client's document number.
 	 * @param name -client's name
 	 * @param lastName -client's last name.
 	 * @return clients -an added new client to the arrayList.
 	 * @throws ExceptionRequiredFields -it's thrown when all four params are null.
 	 */
-	public ArrayList<Client> addClient(String id, String docType, String name, String lastName) throws ExceptionRequiredFields{
+	public ArrayList<Client> addClient(String docType, String id, String name, String lastName) throws ExceptionRequiredFields{
 		for(int i=0; i<clients.size(); i++) {
 			if(clients.get(i)== null) {
 				clients.add(new Client(id, docType, name, lastName));
 			}
 		}
-
 		return clients;
 	}
 	
@@ -95,17 +94,16 @@ public class Employee {
 	 * Overloading addClient method, this one will have all of the 6 attributes of
 	 * Client's class, this one it's just in case if a client wish to
 	 * fill all the fields.
-	 * <b> post: it's added a new client on the arrayList in a
-	 * specific position.
+	 * <b> post: it's added a new client on the arrayList.
+	 * @param docType -client's document type.
 	 * @param id -client's document number.
-	 * @param docType -client's document number.
-	 * @param name -client's document number.
-	 * @param lastName -client's document number.
-	 * @param phone -client's document number.
-	 * @param direction -client's document number.
+	 * @param name -client's document name.
+	 * @param lastName -client's document last name.
+	 * @param phone -client's document phone.
+	 * @param direction -client's document direction.
 	 * @return clients -an added new client to the arrayList.
 	 */
-	public ArrayList<Client> addClient(String id, String docType, String name, String lastName, String phone, String direction) throws ExceptionRequiredFields{
+	public ArrayList<Client> addClient( String docType, String id, String name, String lastName, String phone, String direction) throws ExceptionRequiredFields{
 		for(int i=0; i<clients.size(); i++) {
 			if(clients.get(i)== null) {
 				clients.add(new Client(id, docType, name, lastName, phone, direction));
