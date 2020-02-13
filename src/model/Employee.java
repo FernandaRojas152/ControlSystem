@@ -71,14 +71,15 @@ public class Employee {
 	}
 	
 	/**
+	 *This method will add a new Client, but only with 4 params that are required 
 	 * <b> post: it's added a new client on the arrayList in a
 	 * specific position.
 	 * @param id -client's document number.
 	 * @param docType -client's document type
 	 * @param name -client's name
 	 * @param lastName -client's last name.
-	 * @return clients -an arrayList of clients.
-	 * @throws ExceptionRequiredFields
+	 * @return clients -an added new client to the arrayList.
+	 * @throws ExceptionRequiredFields -it's thrown when all four params are null.
 	 */
 	public ArrayList<Client> addClient(String id, String docType, String name, String lastName) throws ExceptionRequiredFields{
 		for(int i=0; i<clients.size(); i++) {
@@ -89,16 +90,20 @@ public class Employee {
 
 		return clients;
 	}
+	
 	/**
-	 * 
-	 * @param id
-	 * @param docType
-	 * @param name
-	 * @param lastName
-	 * @param phone
-	 * @param direction
-	 * @return
-	 * @throws ExceptionRequiredFields
+	 * Overloading addClient method, this one will have all of the 6 attributes of
+	 * Client's class, this one it's just in case if a client wish to
+	 * fill all the fields.
+	 * <b> post: it's added a new client on the arrayList in a
+	 * specific position.
+	 * @param id -client's document number.
+	 * @param docType -client's document number.
+	 * @param name -client's document number.
+	 * @param lastName -client's document number.
+	 * @param phone -client's document number.
+	 * @param direction -client's document number.
+	 * @return clients -an added new client to the arrayList.
 	 */
 	public ArrayList<Client> addClient(String id, String docType, String name, String lastName, String phone, String direction) throws ExceptionRequiredFields{
 		for(int i=0; i<clients.size(); i++) {
@@ -110,12 +115,15 @@ public class Employee {
 	}
 
 	/**
-	 * 
-	 * @return turn
+	 * This method will advance the turn starting by 'AOO' 'till 'Z99'
+	 * and after it reaches 'Z99' returns to 'A00'.
+	 * <b> post: creates a new turn that it's going to be
+	 * assigned to a client.
+	 * @return last -an object of type Turn that represents the actual turn.
 	 */
 	public Turn advanceTurn() {
 		if (last == null) {
-			last = new Turn("Z98");
+			last = new Turn("A00");
 		} else {
 			char c = last.getLetter().charAt(0);
 			char b = last.getLetter().charAt(1);
@@ -140,4 +148,14 @@ public class Employee {
 		}
 		return last;
 	}
+	
+	/**
+	public static void main(String[] args) {
+		Employee e= new Employee();
+		System.out.println(e.advanceTurn());
+		System.out.println(e.advanceTurn());
+		System.out.println(e.advanceTurn());
+		System.out.println(e.advanceTurn());
+	}
+	*/
 }
