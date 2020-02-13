@@ -11,7 +11,7 @@ import customExceptions.*;
 public class Employee {
 	// Attributes
 	/**
-	 * ArrayList of clients that are being adding
+	 * ArrayList of clients that are going to be added.
 	 */
 	private ArrayList<Client> clients;
 	

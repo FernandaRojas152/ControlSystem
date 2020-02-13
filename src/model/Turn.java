@@ -9,10 +9,17 @@ public class Turn {
 	//Attributes
 	private String letter;
 	private boolean status;
+	
+	/**
+	 * An object of class Turn that it's going to save the turn.
+	 */
 	private Turn last;
 	
 	//Methods
-	//Constructor's method
+	/**
+	 * Constructor's method
+	 * @param letter
+	 */
 	public Turn(String letter) {
 		this.letter= letter;
 		status= false;
