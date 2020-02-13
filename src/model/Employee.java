@@ -146,6 +146,13 @@ public class Employee {
 	}
 	
 	/**
+	 * 
+	 */
+	public void assignTurn() {
+		
+	}
+	
+	/**
 	 * This method will tell if a client was actually attended or not.
 	 * The client can lose a turn if he's not there at the moment of the call.
 	 * @return attended
@@ -154,7 +161,14 @@ public class Employee {
 		if (last.isStatus()== true) {
 			attended= true;
 		}else {
-			// throw new ExceptionNotAttended 
+			//va en el main.
+			try {
+				
+			
+			throw new ExceptionNotAttended();
+			} catch(ExceptionNotAttended e) {
+				System.out.println(e.getMessage());
+			}
 		}
 		return attended;
 	}
