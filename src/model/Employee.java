@@ -54,7 +54,7 @@ public class Employee {
 	/**
 	 * This method will search a client by his id, and show it on screen.
 	 * <b> pre: </b> id!= null <br>
-	 * <b> post: shows the specific client with his id.
+	 * <b> post: shows the specific client with his id. </b>
 	 * @param id -client's document number.
 	 * @return client -an specific client that has been saved in a new object.
 	 */
@@ -76,7 +76,7 @@ public class Employee {
 	/**
 	 *This method will add a new Client, but only with 4 params that are required 
 	 * <b> post: it's added a new client on the arrayList in a
-	 * specific position.
+	 * specific position. </b>
 	 * @param docType -client's document type
 	 * @param id -client's document number.
 	 * @param name -client's name
@@ -95,7 +95,7 @@ public class Employee {
 	 * Overloading addClient method, this one will have all of the 6 attributes of
 	 * Client's class, this one it's just in case if a client wish to
 	 * fill all the fields.
-	 * <b> post: it's added a new client on the arrayList.
+	 * <b> post: it's added a new client on the arrayList. </b>
 	 * @param docType -client's document type.
 	 * @param id -client's document number.
 	 * @param name -client's document name.
@@ -103,6 +103,7 @@ public class Employee {
 	 * @param phone -client's document phone.
 	 * @param direction -client's document direction.
 	 * @return clients -an added new client to the arrayList.
+	 * @throws ExceptionRequiredFields -it's thrown when all four params are null.
 	 */
 	public ArrayList<Client> addClient( String docType, String id, String name, String lastName, String phone, String direction) throws ExceptionRequiredFields{
 				clients.add(new Client(id, docType, name, lastName, phone, direction));
@@ -112,7 +113,7 @@ public class Employee {
 	/**
 	 * This method will advance the turn starting by 'AOO' 'till 'Z99'
 	 * and after it reaches 'Z99' returns to 'A00'.
-	 * <b> post: creates a new turn that it's going to be
+	 * <b> post: creates a new turn that it's going to be </b>
 	 * assigned to a client.
 	 * @return last -an object of type Turn that represents the actual turn.
 	 */
