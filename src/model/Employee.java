@@ -82,11 +82,9 @@ public class Employee {
 	 * @throws ExceptionRequiredFields -it's thrown when all four params are null.
 	 */
 	public ArrayList<Client> addClient(String docType, String id, String name, String lastName) throws ExceptionRequiredFields{
-		for(int i=0; i<clients.size(); i++) {
-			if(clients.get(i)== null) {
-				clients.add(new Client(id, docType, name, lastName));
-			}
-		}
+				
+		clients.add(new Client(id, docType, name, lastName));
+
 		return clients;
 	}
 	
@@ -104,11 +102,8 @@ public class Employee {
 	 * @return clients -an added new client to the arrayList.
 	 */
 	public ArrayList<Client> addClient( String docType, String id, String name, String lastName, String phone, String direction) throws ExceptionRequiredFields{
-		for(int i=0; i<clients.size(); i++) {
-			if(clients.get(i)== null) {
+		
 				clients.add(new Client(id, docType, name, lastName, phone, direction));
-			}
-		}
 		return clients;
 	}
 

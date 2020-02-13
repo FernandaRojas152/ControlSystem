@@ -36,43 +36,43 @@ public class Turn {
 	}
 	
 	/**
-	 * 
-	 * @param letter
+	 * Modifies the letter to the new one.
+	 * @param letter -the new letter.
 	 */
 	public void setLetter(String letter) {
-		this.letter = letter;
+		this.letter= letter;
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Shows if a turn it's active or not.
+	 * @return status -a boolean that indicates if a client has a turn.
 	 */
 	public boolean isStatus() {
 		return status;
 	}
 	
 	/**
-	 * 
-	 * @param status
+	 * Modifies the status that a turn has.
+	 * @param status -the actual status of the turn.
 	 */
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Gets the new turn when it's changing of number.
+	 * @return last -an oject of type Turn that saves the new turn.
 	 */
 	public Turn getLast() {
 		return last;
 	}
 	
 	/**
-	 * 
-	 * @param last
+	 * Modifies the last turn that has been saved.
+	 * @param last -the new turn.
 	 */
 	public void setLast(Turn last) {
-		this.last = last;
+		this.last= last;
 	}
 	
 	@Override
