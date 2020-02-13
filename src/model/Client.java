@@ -157,4 +157,8 @@ public class Client {
 	public Turn getTurn() {
 		return turn;
 	}
+	
+	public void setTurn(Turn t) {
+		turn = t;
+	}
 }

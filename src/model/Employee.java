@@ -11,7 +11,6 @@ import customExceptions.*;
 public class Employee {
 
 	// Attributes
-	private boolean attended= false;
 	
 	/**
 	 * ArrayList of clients that are going to be added.
@@ -84,11 +83,9 @@ public class Employee {
 	 * @return clients -an added new client to the arrayList.
 	 * @throws ExceptionRequiredFields -it's thrown when all four params are null.
 	 */
-	public ArrayList<Client> addClient(String docType, String id, String name, String lastName) throws ExceptionRequiredFields{
-				
-		clients.add(new Client(id, docType, name, lastName));
-
-		return clients;
+	public void addClient(String docType, String id, String name, String lastName) throws ExceptionRequiredFields{
+		Client c = new Client(id, docType, name, lastName);
+		registerClient(c);
 	}
 	
 	/**
@@ -105,9 +102,19 @@ public class Employee {
 	 * @return clients -an added new client to the arrayList.
 	 * @throws ExceptionRequiredFields -it's thrown when all four params are null.
 	 */
-	public ArrayList<Client> addClient( String docType, String id, String name, String lastName, String phone, String direction) throws ExceptionRequiredFields{
-				clients.add(new Client(id, docType, name, lastName, phone, direction));
-		return clients;
+	public void addClient( String docType, String id, String name, String lastName, String phone, String direction) throws ExceptionRequiredFields{
+			Client c = new Client(id, docType, name, lastName, phone, direction);
+			registerClient(c);
+	}
+	
+	/**
+	 * 
+	 * @param c
+	 */
+	public void registerClient(Client c) {
+		advanceTurn();
+		c.setTurn(last);
+		clients.add(c);
 	}
 
 	/**
@@ -145,30 +152,18 @@ public class Employee {
 		return last;
 	}
 	
-	/**
-	 * 
-	 */
-	public void assignTurn() {
-		
-	}
 	
 	/**
 	 * This method will tell if a client was actually attended or not.
 	 * The client can lose a turn if he's not there at the moment of the call.
 	 * @return attended
 	 */
-	public boolean wasAttended() {
+	public boolean wasAttended() throws ExceptionNotAttended{
+		boolean attended = false;
 		if (last.isStatus()== true) {
 			attended= true;
 		}else {
-			//va en el main.
-			try {
-				
-			
 			throw new ExceptionNotAttended();
-			} catch(ExceptionNotAttended e) {
-				System.out.println(e.getMessage());
-			}
 		}
 		return attended;
 	}
