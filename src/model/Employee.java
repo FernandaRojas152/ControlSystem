@@ -9,7 +9,10 @@ import customExceptions.*;
  * Class Employee
  */
 public class Employee {
+
 	// Attributes
+	private boolean attended= false;
+	
 	/**
 	 * ArrayList of clients that are going to be added.
 	 */
@@ -140,6 +143,15 @@ public class Employee {
 			last.setLetter(turnf);
 		}
 		return last;
+	}
+	
+	public boolean wasAttended() {
+		if (last.isStatus()== true) {
+			attended= true;
+		}else {
+			// throw new ExceptionNotAttended 
+		}
+		return attended;
 	}
 	
 	/**
