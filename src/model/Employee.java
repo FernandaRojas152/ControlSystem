@@ -10,26 +10,44 @@ import customExceptions.*;
  */
 public class Employee {
 	// Attributes
+	/**
+	 * ArrayList of clients that are being adding
+	 */
 	private ArrayList<Client> clients;
+	
+	/**
+	 * Association with class Turn so it can assign a turn for each client.
+	 */
 	private Turn last;
 
 	// Methods
 
-	// Constructor's method
+	/**
+	 * Constructor's method of Class Employee
+	 */
 	public Employee() {
 		clients = new ArrayList<>();
 	}
 
 	// getters and setters of Employee's attributes
-
+	/**
+	 * get the clients that are in the program.
+	 * @return clients - an arrayList of clients.
+	 */
 	public ArrayList<Client> getClients() {
 		return clients;
 	}
-
+	
+	/**
+	 * Modifies the arrayList of clients to change one or
+	 * all clients
+	 * @param clients -the new client or clients that are going to be
+	 * changed
+	 */
 	public void setClients(ArrayList<Client> clients) {
 		this.clients = clients;
 	}
-	
+
 	/**
 	 * 
 	 * @param id
@@ -38,25 +56,52 @@ public class Employee {
 	public Client searchClient(String id) throws NullPointerException{
 		boolean find= false;
 		Client client= null;
-		
-			for(int i=0; i<clients.size() && !find; i++) {
-				if(clients.get(i).getId().equals(id)) {
-					client= clients.get(i);
-					find=true;
-				}else {
-					//throw new NullPointerException
-				}
+
+		for(int i=0; i<clients.size() && !find; i++) {
+			if(clients.get(i).getId().equals(id)) {
+				client= clients.get(i);
+				find=true;
+			}else {
+				//throw new NullPointerException
 			}
+		}
 		return client;
 	}
-
+	/**
+	 * 
+	 * @param id
+	 * @param docType
+	 * @param name
+	 * @param lastName
+	 * @return
+	 * @throws ExceptionRequiredFields
+	 */
 	public ArrayList<Client> addClient(String id, String docType, String name, String lastName) throws ExceptionRequiredFields{
-		clients.add(new Client(id, docType, name, lastName));
+		for(int i=0; i<clients.size(); i++) {
+			if(clients.get(i)== null) {
+				clients.add(new Client(id, docType, name, lastName));
+			}
+		}
+
 		return clients;
 	}
-	
+	/**
+	 * 
+	 * @param id
+	 * @param docType
+	 * @param name
+	 * @param lastName
+	 * @param phone
+	 * @param direction
+	 * @return
+	 * @throws ExceptionRequiredFields
+	 */
 	public ArrayList<Client> addClient(String id, String docType, String name, String lastName, String phone, String direction) throws ExceptionRequiredFields{
-		clients.add(new Client(id, docType, name, lastName, phone, direction));
+		for(int i=0; i<clients.size(); i++) {
+			if(clients.get(i)== null) {
+				clients.add(new Client(id, docType, name, lastName, phone, direction));
+			}
+		}
 		return clients;
 	}
 
@@ -91,6 +136,4 @@ public class Employee {
 		}
 		return last;
 	}
-
-
 }
