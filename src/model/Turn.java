@@ -7,8 +7,9 @@ package model;
  */
 public class Turn {
 	//Attributes
-	/**Letter at the start of this turn*/
+	/**Letter of this turn*/
 	private String letter;
+	/** Status (Has an active turn or not)*/
 	private boolean status;
 	
 	/**
