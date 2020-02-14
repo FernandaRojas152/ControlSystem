@@ -134,7 +134,7 @@ public class Employee {
 			char a = last.getLetter().charAt(2);
 			if (a != '9') {
 				a++;
-			} else {
+			} else {	
 				a = '0';
 				if (b < 57) {
 					b++;

@@ -11,9 +11,6 @@ import model.Employee;
  */
 public class Menu {
 	//attributes
-	/** Constant*/
-	public static final int EXIT= 6;
-	
 	public boolean end= false;
 	//association
 	private Employee employee;
@@ -36,15 +33,16 @@ public class Menu {
 		ArrayList<Integer> options = new ArrayList<>();
         while (true && end!=true){
             try{
-                System.out.println("1. Sort an especific topic \n 2. Sort Owners \n 3. Sort Clubs"+
-            "4. Sort Binary \n 5. Exit");
+                System.out.println("1. Add Client \n 2. Assign Turn \n 3. Advance turn"+
+            "4. Search Client \n 6. Exit");
                 System.out.println("Please choose the option you want to use:");
                 int option = entry.nextInt();
-                if (option > 0 && option<= 4 ){
+                if (option > 0 && option<= 5 ){
                     options.add(option);
                     break;
-                } else if(option==5){
+                } else if(option==6){
                 	ShowExit();
+                	end= true;
                 } else {
                     Error();
                 }
@@ -56,6 +54,19 @@ public class Menu {
         return options;
 	}
 	
+	public void ShowExit() {
+		System.out.println(" ");
+		System.out.println("Thank you for using this application, come back soon :).");
+		System.out.println(" ");
+	}
+	
+	public void Error(){	
+		System.out.println(" ");
+		System.out.println(" ******************************************************************************************* ");
+		System.out.println(" * Sorry, there's not an option available yet. Please try again with the possible options. * ");
+		System.out.println(" ******************************************************************************************* ");
+		System.out.println(" ");
+	}
 	
 	
 }
