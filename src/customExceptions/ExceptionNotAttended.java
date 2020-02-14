@@ -1,5 +1,10 @@
 package customExceptions;
 
+/**
+ * @version Feb 14th 2020
+ * @author Fernanda
+ * Class ExceptionNotAttended
+ */
 public class ExceptionNotAttended extends Exception {
 	/**
 	 * 
