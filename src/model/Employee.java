@@ -108,8 +108,9 @@ public class Employee {
 	}
 	
 	/**
-	 * 
-	 * @param c
+	 * this method will register the client to the program so it can be searched or
+	 * assigned a turn
+	 * @param c- the client that comes of method add Client.
 	 */
 	public void registerClient(Client c) {
 		advanceTurn();
@@ -156,7 +157,8 @@ public class Employee {
 	/**
 	 * This method will tell if a client was actually attended or not.
 	 * The client can lose a turn if he's not there at the moment of the call.
-	 * @return attended
+	 * @return attended- a boolean that it's going to save if it's true that was attended or not
+	 * @throws ExceptionNotAttended -
 	 */
 	public boolean wasAttended() throws ExceptionNotAttended{
 		boolean attended = false;
