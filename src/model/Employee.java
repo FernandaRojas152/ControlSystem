@@ -100,7 +100,7 @@ public class Employee {
 	 * @param direction -client's document direction.
 	 * @throws ExceptionRequiredFields -it's thrown when all four params are null.
 	 */
-	public void addClient(String docType, String id, String name, String lastName, String phone, String direction) throws ExceptionRequiredFields{
+	public void addClient(String docType, String id, String name, String lastName, String phone, String direction) throws ExceptionRequiredFields, ExceptionAlreadyExists{
 			Client c = new Client(id, docType, name, lastName, phone, direction);
 			registerClient(c);
 	}
@@ -111,11 +111,23 @@ public class Employee {
 	 * @param c- the client that comes of method add Client.
 	 */
 	public void registerClient(Client c) {
-		advanceTurn();
-		c.setTurn(last);
 		clients.add(c);
+		
 	}
-
+	
+	/**
+	 * this method will assign the turn to the searched client.
+	 * @param id -the id of the client that it's going to be assigned a turn
+	 * @throws NullPointerException -if searchClient it's null, that id doesn't exist.
+	 */
+	public void assignTurn(String id) {
+		if(searchClient(id).getTurn()!= null) {
+			advanceTurn();
+			searchClient(id).setTurn(last);
+		}else if(searchClient(id)== null) {
+			throw new NullPointerException();
+		}	
+	}
 	/**
 	 * This method will advance the turn starting by 'AOO' 'till 'Z99'
 	 * and after it reaches 'Z99' returns to 'A00'.
