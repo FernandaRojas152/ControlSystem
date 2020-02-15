@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import customExceptions.ExceptionRequiredFields;
@@ -18,10 +19,9 @@ class TestEmployee {
 	
 	@Test
 	void testUserDoesntExist() throws ExceptionRequiredFields {
-		setupStage1();
+		//setupStage1();
 		
-		assertThrows(expectedType, executable, message)
-		assertEquals(true, validation);
+		Assertions.assertThrows(NullPointerException.class, () -> employee.searchClient("31577298"));
 		
 	}
 	
