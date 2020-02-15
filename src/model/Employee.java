@@ -80,7 +80,6 @@ public class Employee {
 	 * @param id -client's document number.
 	 * @param name -client's name
 	 * @param lastName -client's last name.
-	 * @return clients -an added new client to the arrayList.
 	 * @throws ExceptionRequiredFields -it's thrown when all four params are null.
 	 */
 	public void addClient(String docType, String id, String name, String lastName) throws ExceptionRequiredFields{
@@ -99,10 +98,9 @@ public class Employee {
 	 * @param lastName -client's document last name.
 	 * @param phone -client's document phone.
 	 * @param direction -client's document direction.
-	 * @return clients -an added new client to the arrayList.
 	 * @throws ExceptionRequiredFields -it's thrown when all four params are null.
 	 */
-	public void addClient( String docType, String id, String name, String lastName, String phone, String direction) throws ExceptionRequiredFields{
+	public void addClient(String docType, String id, String name, String lastName, String phone, String direction) throws ExceptionRequiredFields{
 			Client c = new Client(id, docType, name, lastName, phone, direction);
 			registerClient(c);
 	}
