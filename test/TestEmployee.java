@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+<<<<<<< HEAD
 import customExceptions.ExceptionAlreadyExists;
 import customExceptions.ExceptionRequiredFields;
 import model.Employee;
@@ -35,6 +36,17 @@ class TestEmployee {
 	void testNotUserRegistered() throws ExceptionRequiredFields {
 		setupStage1();
 		
+=======
+/**
+*@version Feb 14th 2020
+*@author Fernanda Rojas
+*Class TestEmployee
+*/
+
+class TestEmployee {
+	private Employee employee;
+	public void setupStage1() {
+>>>>>>> 8034095157e779a29e703dfe4e04f8d1816dd946
 	}
 	
 	//test Search Client
