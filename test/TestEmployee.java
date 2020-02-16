@@ -21,6 +21,10 @@ class TestEmployee {
 		employee.addClient("CC", "3186170", "Amanda", "Rojas", "4388786", "Cra 12 E #50-45");
 	}
 	
+	public void setupStage2() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+		employee= new Employee();
+	}
+	
 	/** Making the tests*/
 	@Test
 	void testUserDoesntExist() throws ExceptionRequiredFields {
@@ -33,7 +37,6 @@ class TestEmployee {
 		setupStage1();
 		try {
 			employee.addClient("CC", "3186170", "Amanda", "Rojas", "4388786", "Cra 12 E #50-45");
-			
 		}catch(ExceptionAlreadyExists e) {
 			assertTrue(true);
 		}
@@ -44,8 +47,9 @@ class TestEmployee {
 	}
 	
 	@Test
-	void NotUsersThere() {
-		assertEquals(0,employee.getClients().size(),"Must be an empty arraylist");
+	void NotUsersThere() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+		setupStage2();
+		assertTrue(employee.getClients().isEmpty());
 	}
 	
 	@Test
