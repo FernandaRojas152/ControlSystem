@@ -53,4 +53,5 @@ class TestTurn {
 		turn.setStatus(true);
 		assertTrue(turn.isStatus());
 	}
+	
 }
