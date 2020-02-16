@@ -145,7 +145,6 @@ class TestEmployee {
 	@Test
 	void testAttendNextTurn() throws ExceptionRequiredFields, ExceptionAlreadyExists, ExceptionNotAttended {
 		setupStage3();
-		//assertTrue(employee.wasAttended()== true,"Should've been attended");
 		employee.advanceTurn();
 		assertEquals(employee.getLast(),employee.advanceTurn());
 	}
