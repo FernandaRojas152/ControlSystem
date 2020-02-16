@@ -2,6 +2,9 @@ package ui;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import customExceptions.ExceptionAlreadyExists;
+import customExceptions.ExceptionRequiredFields;
 import model.Employee;
 
 /**
@@ -68,8 +71,29 @@ public class Menu {
 		System.out.println(" ");
 	}
 	
-	public void addClient() {
+	public void addClient() throws ExceptionRequiredFields {
+		System.out.println("Input your document type:");
+		String dt= entry.nextLine();
+		System.out.println("Input your document number:");
+		String dn= entry.nextLine();
+		System.out.println("Input your name:");
+		String name= entry.nextLine();
+		System.out.println("Input your last name:");
+		String last= entry.nextLine();
+		System.out.println("Input your phone:");
+		String ph= entry.nextLine();
+		System.out.println("Input your address:");
+		String add= entry.nextLine();
 		
+		try {
+			employee.addClient(dt, dn, name, last, ph, add);
+		} catch (ExceptionRequiredFields e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExceptionAlreadyExists e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	
@@ -77,9 +101,19 @@ public class Menu {
 		
 	}
 	
+	
 	public void advanceTurn() {
 		employee.advanceTurn();
 	}
 	
+	public void searchClient() {
+		System.out.println("Please input the document number of the client:");
+		String id= entry.nextLine();
+		employee.searchClient(id);
+	}
+	
+	public void attendClient() {
+		
+	}
 	
 }

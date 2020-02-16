@@ -1,7 +1,7 @@
 package model;
 
 /**
- * @version Feb 20th 2020
+ * @version Feb 15th 2020
  * @author Fernanda Rojas
  * Class Turn
  */

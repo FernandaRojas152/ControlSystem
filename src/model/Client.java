@@ -7,6 +7,8 @@ package model;
  */
 public class Client {
 	//Atributes
+	/** All String with the basic data of a Client
+	 * doctype, id, name, last name are required*/
 	private String docType;
 	private String id;
 	private String name;
@@ -158,6 +160,10 @@ public class Client {
 		return turn;
 	}
 	
+	/**
+	 * This method changes the turn that the client has
+	 * @param t -the new turn
+	 */
 	public void setTurn(Turn t) {
 		turn = t;
 	}

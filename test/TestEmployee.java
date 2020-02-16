@@ -2,6 +2,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import customExceptions.ExceptionAlreadyExists;
+import customExceptions.ExceptionNotAttended;
 import customExceptions.ExceptionRequiredFields;
 import model.*;
 
@@ -36,6 +37,9 @@ class TestEmployee {
 		employee.addClient("CC", "1005706215", "Fernanda", "Rojas", "4388786", "Cra 12 E #50-45");
 	}
 	
+	public void setupStage5() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+		employee= new Employee();
+	}
 	/** Making the tests*/
 	@Test
 	void testUserDoesntExist() throws ExceptionRequiredFields {
@@ -119,4 +123,39 @@ class TestEmployee {
 		
 		assertEquals(employee.getLast(),employee.advanceTurn(),"Should be A00");
 	}
+	
+	@Test
+	void testGenerateE() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+		setupStage5();
+		employee.advanceTurn();
+		employee.getLast().setLetter("D99");
+		
+		assertEquals(employee.getLast(),employee.advanceTurn(),"Should be E00");
+	}
+	
+	@Test
+	void testGenerateZ() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+		setupStage5();
+		employee.advanceTurn();
+		employee.getLast().setLetter("Z99");
+		
+		assertEquals(employee.getLast(),employee.advanceTurn(),"Should be A00");
+	}
+	
+	@Test
+	void testAttendNextTurn() throws ExceptionRequiredFields, ExceptionAlreadyExists, ExceptionNotAttended {
+		setupStage3();
+		//assertTrue(employee.wasAttended()== true,"Should've been attended");
+		employee.advanceTurn();
+		assertEquals(employee.getLast(),employee.advanceTurn());
+	}
+	
+	@Test
+	void testAttendNext2() throws ExceptionRequiredFields, ExceptionAlreadyExists, ExceptionNotAttended {
+		setupStage3();
+		assertTrue(employee.wasAttended()== true,"Should've been attended");
+		employee.advanceTurn();
+		assertEquals(employee.getLast(),employee.advanceTurn());
+	}
+	
 }

@@ -142,21 +142,6 @@ public class Employee {
 			}
 			return client;
 		}
-
-		/**
-		 * this method will assign the turn to the searched client.
-		 * @param id -the id of the client that it's going to be assigned a turn
-		 * @throws NullPointerException -if searchClient it's null, that id doesn't exist.
-		 */
-		public void assignTurn(String id) {
-			if(searchClient(id).getTurn().getLast()== null) {
-				advanceTurn();
-				searchClient(id).setTurn(last);
-				last.setStatus(true);
-			}else if(searchClient(id)== null) {
-				throw new NullPointerException();
-			}	
-		}
 		
 
 		/**
@@ -194,7 +179,21 @@ public class Employee {
 			return last;
 		}
 
-
+		/**
+		 * this method will assign the turn to the searched client.
+		 * @param id -the id of the client that it's going to be assigned a turn
+		 * @throws NullPointerException -if searchClient it's null, that id doesn't exist.
+		 */
+		public void assignTurn(String id) {
+			if(searchClient(id).getTurn()== null) {
+				advanceTurn();
+				searchClient(id).setTurn(last);
+				last.setStatus(true);
+			}else if(searchClient(id)== null) {
+				throw new NullPointerException();
+			}	
+		}
+		
 		/**
 		 * This method will tell if a client was actually attended or not.
 		 * The client can lose a turn if he's not there at the moment of the call.
