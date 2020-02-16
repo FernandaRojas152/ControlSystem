@@ -25,6 +25,12 @@ class TestEmployee {
 		employee= new Employee();
 	}
 	
+	public void setupStage3() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+		employee= new Employee();
+		employee.addClient("CC", "1005706215", "Fernanda", "Rojas", "4388786", "Cra 12 E #50-45");
+		employee.assignTurn("1005706215");
+	}
+	
 	/** Making the tests*/
 	@Test
 	void testUserDoesntExist() throws ExceptionRequiredFields {
@@ -64,9 +70,24 @@ class TestEmployee {
 	@Test /** This one it's when a client doesn't exist*/
 	void testsearch() throws ExceptionRequiredFields, ExceptionAlreadyExists {
 		setupStage1();
-		
 		assertNull(employee.searchClient("1005706215"));
-		//Assertions.assertThrows(NullPointerException.class, () -> employee.searchClient("1005706215"), "Should throw an exception");
+	}
+	
+	@Test
+	void testSearchEmpty() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+		setupStage2();
+		assertNull(employee.searchClient("3186170"));
+	}
+	
+	@Test
+	void testsearchInArray() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+		setupStage1();
+		assertNotNull(employee.searchClient("1005706215"));
+	}
+	
+	@Test
+	void testActiveTurn() {
+		
 	}
 	
 	

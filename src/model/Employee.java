@@ -136,6 +136,7 @@ public class Employee {
 			if(searchClient(id).getTurn()!= null) {
 				advanceTurn();
 				searchClient(id).setTurn(last);
+				last.setStatus(true);
 			}else if(searchClient(id)== null) {
 				throw new NullPointerException();
 			}	
