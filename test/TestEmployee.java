@@ -3,8 +3,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import customExceptions.ExceptionAlreadyExists;
 import customExceptions.ExceptionRequiredFields;
-import model.Client;
-import model.Employee;
+import model.*;
 
 /**
  * @version Feb 14th 2020
@@ -14,6 +13,7 @@ import model.Employee;
 class TestEmployee {
 	private Employee employee;
 	private Client client;
+	private Turn turn;
 	
 	/** Setting up stages*/
 	public void setupStage1() throws ExceptionRequiredFields, ExceptionAlreadyExists {
@@ -29,6 +29,11 @@ class TestEmployee {
 		employee= new Employee();
 		employee.addClient("CC", "1005706215", "Fernanda", "Rojas", "4388786", "Cra 12 E #50-45");
 		employee.assignTurn("1005706215");
+	}
+	
+	public void setupStage4() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+		employee= new Employee();
+		employee.addClient("CC", "1005706215", "Fernanda", "Rojas", "4388786", "Cra 12 E #50-45");
 	}
 	
 	/** Making the tests*/
@@ -86,11 +91,22 @@ class TestEmployee {
 	}
 	
 	@Test
-	void testActiveTurn() {
-		
+	void testActiveTurn() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+		setupStage3();
+		assertTrue(employee.getClients().get(0).getTurn().isStatus());
 	}
 	
+	@Test
+	void testGenerateTurn() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+		setupStage4();
+		employee.assignTurn("1005706215");
+		assertTrue(employee.getClients().get(0).getTurn().isStatus()==true);
+	}
 	
-	
-	
+	@Test
+	void testNextTurn() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+		employee.
+		employee.advanceTurn();
+		assertTrue(employee.getClients().get(0).getTurn().isStatus());
+	}
 }

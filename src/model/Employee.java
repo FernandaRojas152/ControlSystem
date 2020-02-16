@@ -49,6 +49,22 @@ public class Employee {
 	public void setClients(ArrayList<Client> clients) {
 		this.clients = clients;
 	}
+	
+	/**
+	 * get the turn.
+	 * @return last -an object of type turn that it's going to save the String
+	 */
+	public Turn getLast() {
+		return last;
+	}
+
+	/**
+	 * Modifies the String of the actual turn
+	 * @param last -the new turn.
+	 */
+	public void setLast(Turn last) {
+		this.last = last;
+	}
 
 	
 
@@ -133,7 +149,7 @@ public class Employee {
 		 * @throws NullPointerException -if searchClient it's null, that id doesn't exist.
 		 */
 		public void assignTurn(String id) {
-			if(searchClient(id).getTurn()!= null) {
+			if(searchClient(id).getTurn().getLast()== null) {
 				advanceTurn();
 				searchClient(id).setTurn(last);
 				last.setStatus(true);
@@ -141,6 +157,8 @@ public class Employee {
 				throw new NullPointerException();
 			}	
 		}
+		
+
 		/**
 		 * This method will advance the turn starting by 'AOO' 'till 'Z99'
 		 * and after it reaches 'Z99' returns to 'A00'.
