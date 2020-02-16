@@ -42,7 +42,7 @@ public class Client {
 	 * @param lastName -client's document lastName.
 	 * @param phone -client's document phone.
 	 * @param direction -client's document direction.
-	 */
+	*/
 	public Client(String docType, String id, String name, String lastName, String phone, String direction) {
 		this.docType = docType;
 		this.id = id;

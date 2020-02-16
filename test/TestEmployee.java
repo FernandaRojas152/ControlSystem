@@ -40,21 +40,36 @@ class TestEmployee {
 		}catch(ExceptionAlreadyExists e) {
 			assertTrue(true);
 		}
-		
-		
-		//Assertions.assertThrows(ExceptionAlreadyExists.class, () -> employee.searchClient("31577298"), "Should throw an exception");
-		//employee.addClient("CC", "1005706215", "Fernanda", "Rojas");
 	}
 	
 	@Test
-	void NotUsersThere() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+	void testNotUsersThere() throws ExceptionRequiredFields, ExceptionAlreadyExists {
 		setupStage2();
 		assertTrue(employee.getClients().isEmpty());
 	}
 	
 	@Test
-	void UsersThere() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+	void testUsersThere() throws ExceptionRequiredFields, ExceptionAlreadyExists {
 		setupStage1();
 		assertTrue(employee.getClients().size()!=0);
 	}
+	
+	
+	@Test
+	void testsearchClient() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+		setupStage1();
+		assertNotNull(employee.searchClient("3186170"));
+	}
+	
+	@Test /** This one it's when a client doesn't exist*/
+	void testsearch() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+		setupStage1();
+		
+		assertNull(employee.searchClient("1005706215"));
+		//Assertions.assertThrows(NullPointerException.class, () -> employee.searchClient("1005706215"), "Should throw an exception");
+	}
+	
+	
+	
+	
 }
