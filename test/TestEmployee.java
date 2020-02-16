@@ -17,6 +17,7 @@ class TestEmployee {
 	
 	/** Setting up stages*/
 	public void setupStage1() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+		employee= new Employee();
 		employee.addClient("CC", "3186170", "Amanda", "Rojas", "4388786", "Cra 12 E #50-45");
 	}
 	
