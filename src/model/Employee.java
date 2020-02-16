@@ -111,16 +111,21 @@ public class Employee {
 		 * @throws ExceptionRequiredFields -it's thrown when all four params are null.
 		 */
 		public void addClient(String docType, String id, String name, String lastName, String phone, String direction) throws ExceptionRequiredFields, ExceptionAlreadyExists{
-			if(docType!= null && id!= null && name!= null && lastName!=null) {
-				Client c = new Client(id, docType, name, lastName, phone, direction);	
-				if(c.getId().equals(id)) {
+			boolean x= false;
+			for(int i=0; i<clients.size() && x==false; i++) {
+				if(clients.get(i).getId().equals(id)) {
+					x=true;
 					throw new ExceptionAlreadyExists(id);
-				}else {
-					clients.add(c);
+
 				}
-			}
-			else {
-				throw new ExceptionRequiredFields();
+					if(x== false) {
+					if(docType!= null && id!= null && name!= null && lastName!=null) {
+						Client c = new Client(id, docType, name, lastName, phone, direction);
+						clients.add(c);
+					}else {
+						throw new ExceptionRequiredFields();
+					}
+				}
 			}
 		}
 		/**
