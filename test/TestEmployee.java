@@ -105,8 +105,18 @@ class TestEmployee {
 	
 	@Test
 	void testNextTurn() throws ExceptionRequiredFields, ExceptionAlreadyExists {
-		employee.
+		setupStage2();
 		employee.advanceTurn();
-		assertTrue(employee.getClients().get(0).getTurn().isStatus());
+		employee.advanceTurn();
+		assertEquals(employee.getLast(),employee.advanceTurn(),"Should be A02");
+	}
+	
+	@Test
+	void testFirstTurn() throws ExceptionRequiredFields, ExceptionAlreadyExists {
+		setupStage2();
+		if(employee.getLast()== null)
+		employee.advanceTurn();
+		
+		assertEquals(employee.getLast(),employee.advanceTurn(),"Should be A00");
 	}
 }
