@@ -11,12 +11,12 @@ import customExceptions.*;
 public class Employee {
 
 	// Attributes
-	
+
 	/**
 	 * ArrayList of clients that are going to be added.
 	 */
 	private ArrayList<Client> clients;
-	
+
 	/**
 	 * Association with class Turn so it can assign a turn for each client.
 	 */
@@ -39,7 +39,7 @@ public class Employee {
 	public ArrayList<Client> getClients() {
 		return clients;
 	}
-	
+
 	/**
 	 * Modifies the arrayList of clients to change one or
 	 * all clients
@@ -71,7 +71,7 @@ public class Employee {
 		}
 		return client;
 	}
-	
+
 	/**
 	 *This method will add a new Client, but only with 4 params that are required 
 	 * <b> post: it's added a new client on the arrayList in a
@@ -83,10 +83,14 @@ public class Employee {
 	 * @throws ExceptionRequiredFields -it's thrown when all four params are null.
 	 */
 	public void addClient(String docType, String id, String name, String lastName) throws ExceptionRequiredFields{
-		Client c = new Client(id, docType, name, lastName);
-		registerClient(c);
+		if(docType!= null && id!= null && name!= null && lastName!=null) {
+			Client c = new Client(id, docType, name, lastName);
+			clients.add(c);
+		}else {
+			throw new ExceptionRequiredFields();
+		} 
 	}
-	
+
 	/**
 	 * Overloading addClient method, this one will have all of the 6 attributes of
 	 * Client's class, this one it's just in case if a client wish to
@@ -101,20 +105,19 @@ public class Employee {
 	 * @throws ExceptionRequiredFields -it's thrown when all four params are null.
 	 */
 	public void addClient(String docType, String id, String name, String lastName, String phone, String direction) throws ExceptionRequiredFields, ExceptionAlreadyExists{
-			Client c = new Client(id, docType, name, lastName, phone, direction);
-			registerClient(c);
+		if(docType!= null && id!= null && name!= null && lastName!=null) {
+			Client c = new Client(id, docType, name, lastName, phone, direction);	
+			if(c.getId().equals(id)) {
+				throw new ExceptionAlreadyExists(id);
+			}else {
+				clients.add(c);
+			}
+		}
+		else {
+			throw new ExceptionRequiredFields();
+		}
 	}
-	
-	/**
-	 * this method will register the client to the program so it can be searched or
-	 * assigned a turn
-	 * @param c- the client that comes of method add Client.
-	 */
-	public void registerClient(Client c) {
-		clients.add(c);
-		
-	}
-	
+
 	/**
 	 * this method will assign the turn to the searched client.
 	 * @param id -the id of the client that it's going to be assigned a turn
@@ -162,8 +165,8 @@ public class Employee {
 		}
 		return last;
 	}
-	
-	
+
+
 	/**
 	 * This method will tell if a client was actually attended or not.
 	 * The client can lose a turn if he's not there at the moment of the call.
@@ -178,9 +181,9 @@ public class Employee {
 			throw new ExceptionNotAttended();
 		}
 		return attended;
-		
+
 	}
-	
+
 	/**
 	public static void main(String[] args) {
 		Employee e= new Employee();
@@ -189,5 +192,5 @@ public class Employee {
 		System.out.println(e.advanceTurn());
 		System.out.println(e.advanceTurn());
 	}
-	*/
+	 */
 }
