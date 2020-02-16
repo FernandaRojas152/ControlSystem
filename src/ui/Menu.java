@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import customExceptions.ExceptionAlreadyExists;
+import customExceptions.ExceptionNotAttended;
 import customExceptions.ExceptionRequiredFields;
 import model.Employee;
 
@@ -21,7 +22,7 @@ public class Menu {
 
 	Scanner entry= new Scanner(System.in);
 
-	public void LoadMenu() throws ExceptionRequiredFields {
+	public void LoadMenu() throws ExceptionRequiredFields, ExceptionNotAttended {
 		 manageMenu();
 	}
 
@@ -36,7 +37,7 @@ public class Menu {
 				"\n 4. Search Client \n 5. Attend Client \n 6. Exit");
 	}
 
-	public void manageMenu() throws ExceptionRequiredFields{
+	public void manageMenu() throws ExceptionRequiredFields, ExceptionNotAttended{
 		int option;
 		Welcome();
 		do{
@@ -50,7 +51,7 @@ public class Menu {
 		}while(option != EXIT);
 	}
 
-	public void doOperation(int option) throws ExceptionRequiredFields{
+	public void doOperation(int option) throws ExceptionRequiredFields, ExceptionNotAttended{
 
 		switch(option){
 
@@ -141,22 +142,33 @@ public class Menu {
 	public void searchClient() {
 		System.out.println("Please input the document number of the client:");
 		String id= entry.nextLine();
-		employee.searchClient(id);
+		if(employee.searchClient(id)!=null) {
+			String n= employee.searchClient(id).getName();
+			String lt= employee.searchClient(id).getLastName();
+			String d= employee.searchClient(id).getDocType();
+			String i= employee.searchClient(id).getId();
+			System.out.println(n+lt+d+i);
+		}else {
+			throw new NullPointerException();
+		}
 	}
 
-	public void attendClient() {
+	public void attendClient() throws ExceptionNotAttended {
 		boolean end2= false;
 		while(!end2) {
 			System.out.println("  ------------------------------------------------------ ");
 			System.out.println("                 Was the client attended? :)  ");
 			System.out.println("  ------------------------------------------------------ ");
 			
+			System.out.println("Please input the document number of the client:");
+			String id= entry.nextLine();
+			
 			System.out.println("1. Yes \n 2. No");
 			int o= entry.nextInt();
 			if(o==1) {
-				//employee.getClients().
+				employee.searchClient(id).getTurn().setStatus(true);
 			}else if(o==2) {
-				
+				throw new ExceptionNotAttended();
 			}else {
 				System.out.println(" * Sorry, there's not an option available yet. Please try again with the possible options. * ");
 			}
